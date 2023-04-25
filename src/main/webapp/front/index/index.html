@@ -1,0 +1,29 @@
+#@commonIndex()
+
+#define main()
+
+<div class="panel">
+    <div class="panel-head">登录</div>
+    <form action="/login">
+        <div class="form-group">
+            <div class="label">用户名:&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg">#(usernameMsg)</span></div>
+            <div>
+                <input class="input-login" type="text" name="username" placeholder="请输入用户名" value="#(username??)">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="label">密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg">#(passwordMsg)</span></div>
+            <div>
+                <input class="input-login" type="password" name="password" placeholder="请输入密码" value="#(password??)">
+            </div>
+        </div>
+        <div class="index-tip">
+            <a href="/register">还未注册?点击这里</a>
+        </div>
+        <div>
+            <button class="login-btn" type="submit">登录</button>
+        </div>
+    </form>
+</div>
+
+#end

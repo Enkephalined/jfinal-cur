@@ -1,0 +1,50 @@
+#@commonHome()
+
+#define main()
+
+<div class="main-content">
+  <div class="main-profile-p1">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.back()">
+      <button class="profile-p1-back">
+        <img src="/static/img/profile/back.png" height="18px">
+      </button>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <span class="profile-p1-title">编辑</span><br>
+      <span>#(loginUser.username)</span>
+    </div>
+  </div>
+
+  <div class="editProfile-p1">
+
+      <div class="panel-head">编辑资料</div>
+      <form action="/home/doEditProfile">
+        <div class="form-group-editProfile">
+          <div class="label">用户名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg-editProfile">#(usernameMsg)</span></div>
+          <div>
+            <input class="input-editProfile" type="text" name="username" placeholder="4到10位字母,数字或下划线" value="#(username??loginUser.username)">
+          </div>
+        </div>
+        <div class="form-group-editProfile">
+          <div class="label">旧密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg-editProfile">#(oldPasswordMsg)</span></div>
+          <div>
+            <input class="input-editProfile" type="password" name="oldPassword" placeholder="请输入旧密码" value="#(oldPassword??)">
+          </div>
+        </div>
+        <div class="form-group-editProfile">
+          <div class="label">新密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg-editProfile">#(newPasswordMsg)</span></div>
+          <div>
+            <input class="input-editProfile" type="password" name="newPassword" placeholder="4到10位字母,数字或下划线" value="#(newPassword??)">
+          </div>
+        </div>
+        <div>
+          <button class="editProfile-btn" type="submit">编&nbsp;&nbsp;&nbsp;&nbsp;辑</button>
+        </div>
+      </form>
+
+  </div>
+</div>
+
+#end

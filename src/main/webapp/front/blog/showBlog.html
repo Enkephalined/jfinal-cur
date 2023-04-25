@@ -1,0 +1,151 @@
+#@commonHome()
+
+#define main()
+
+<div class="main-content">
+
+  <div class="main-profile-p1">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.back()">
+      <button class="profile-p1-back">
+        <img src="/static/img/profile/back.png" height="18px">
+      </button>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <span class="profile-p1-title">讨论</span><br>
+      <span>#(loginUser.username)</span>
+    </div>
+  </div>
+
+  <div class="page-p1">
+
+    <div class="panel-head-blog-title">
+      #(blog.title)
+
+      #if(loginUser.userId == 0)<a href="/blog/delete/#(blog.blogId)"><button class="edit-blog-btn">删 除</button></a>
+      #end
+      #if(loginUser.userId == blog.userId)<a href="/blog/edit/#(blog.blogId)"><button class="edit-blog-btn">修 改</button></a>
+      #end
+
+      <div class="panel-head-blog-content">
+        #if(blogUser == null)
+          <a class="page-td-a" style="color: red">用户已注销</a><br>
+        #else
+          <a class="panel-head-blog-username-a" href="/home/profile/#(blogUser.userId)">#(blogUser.username)</a><br>
+        #end
+
+        #(blog.content)
+      </div>
+    </div>
+
+    #if(commentPage.total == 0)
+      <div style="text-align: center;">
+        <br><br>
+        <h4>一条评论也没有!!</h4>
+        <div>点击右上角发表一条评论吧!</div>
+      </div>
+    #else
+
+      #for(comment : commentPage.list)
+        <div class="comment">
+          <div class="comment-header">
+            <span class="floor">##(for.index + 1 + (commentPage.pageNum - 1) * commentPage.pageSize)</span>
+            <span class="author">
+              #if(comment.username == "*用户已注销*")
+                <a class="page-td-a" style="color: red">用户已注销</a>
+              #else
+                <a class="panel-head-blog-username-a" href="/home/profile/#(comment.userId)">#(comment.username)</a>
+              #end
+            </span>
+
+            #if(loginUser.userId == 0)
+              <a href="/comment/delete/#(comment.commentId)-#(blog.blogId)-#(commentPage.pageNum)">
+                <button class="comment-delete-btn">删&nbsp;除</button>
+              </a>
+            #end
+
+          </div>
+          <div class="comment-content">
+            #(comment.commentContent)
+          </div>
+        </div>
+      #end
+
+    <table>
+      <tr>
+        <td class="td-navigatepageNum" colspan="3" style="border-left: 1px solid #ddd;border-bottom: none">
+          <div class="navigation">
+            <ol class="wp-paginate">
+
+              #if(commentPage.isFirstPage)
+              <li><a class="page-useless">&lt;&lt;</a></li>
+              #else
+              <li><a class="page-userful" href="/blog/showBlog/#(blog.blogId)-1">&lt;&lt;</a></li>
+              #end
+
+              #if(commentPage.hasPreviousPage)
+              <li><a class="page-userful" href="/blog/showBlog/#(blog.blogId)-#(commentPage.prePage)">&lt;</a></li>
+              #else
+              <li><a class="page-userless">&lt;</a></li>
+              #end
+
+              <span id="page_box">
+
+                #for(index : commentPage.navigatepageNums)
+                  #if(index == commentPage.pageNum)
+                    <li><a class="page-current">#(index)</a></li>
+                  #else
+                    <li><a class="page-userful" href="/blog/showBlog/#(blog.blogId)-#(index)">#(index)</a></li>
+                  #end
+                #end
+
+                </span>
+              #if(commentPage.hasNextPage)
+              <li><a class="page-userful" href="/blog/showBlog/#(blog.blogId)-#(commentPage.nextPage)">&gt;</a></li>
+              #else
+              <li><a class="page-useless">&gt;</a></li>
+              #end
+
+              #if(commentPage.isLastPage)
+              <li><a class="page-useless">&gt;&gt;</a></li>
+              #else
+              <li><a class="page-userful" href="/blog/showBlog/#(blog.blogId)-#(commentPage.pages)">&gt;&gt;</a></li>
+              #end
+
+            </ol>
+          </div>
+        </td>
+      </tr>
+
+    #end
+
+    </table>
+  </div>
+</div>
+
+  <div class="right-to-mainContent">
+    <form action="/comment/doAdd">
+      <input type="hidden" name="blogId" value="#(blog.blogId)">
+      <input type="hidden" name="commentPageNum" value="#(commentPage.pageNum)">
+      <input type="hidden" name="userId" value="#(loginUser.userId)">
+      <div>
+
+
+        <div>
+          <br>
+          #if(commentContentMsg == null)
+            <br>
+          #else
+            <span style="color: red;white-space: nowrap">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#(commentContentMsg)</span>
+          #end
+          <textarea class="comment-textarea" name="commentContent" cols="60" placeholder="发一条友善的评论吧~"></textarea>
+        </div>
+      </div>
+      <div>
+        <input class="comment-submit-btn" type="submit" value="发  表">
+      </div>
+    </form>
+  </div>
+
+#end

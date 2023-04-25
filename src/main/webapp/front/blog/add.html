@@ -1,0 +1,45 @@
+#@commonHome()
+
+#define main()
+
+<div class="main-content">
+  <div class="main-profile-p1">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.back()">
+      <button class="profile-p1-back">
+        <img src="/static/img/profile/back.png" height="18px">
+      </button>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <span class="profile-p1-title">发表</span><br>
+      <span>#(loginUser.username)</span>
+    </div>
+  </div>
+
+  <div class="editProfile-p1">
+
+    <div class="panel-head">发表话题</div>
+    <form action="/blog/doAdd">
+      <input type="hidden" name="userId" value="#(loginUser.userId)">
+      <div class="form-group-editProfile">
+        <div class="label">标题:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg-editProfile">#(titleMsg)</span></div>
+        <div>
+          <input class="input-editProfile" type="text" name="title" placeholder="请输入标题" value="#(title??)">
+        </div>
+      </div>
+      <div class="form-group-editProfile">
+        <div class="label">内容:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg-editProfile">#(contentMsg)</span></div>
+        <div>
+          <textarea class="addBlog-content-textarea" name="content" placeholder="请输入内容">#(content??)</textarea>
+        </div>
+      </div>
+      <div>
+        <button class="editProfile-btn" type="submit">发&nbsp;&nbsp;&nbsp;&nbsp;表</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+#end

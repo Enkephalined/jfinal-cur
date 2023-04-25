@@ -1,0 +1,41 @@
+#@commonHome()
+
+#define main()
+
+<div class="main-content">
+
+    <div class="main-profile-p1">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:history.back()">
+            <button class="profile-p1-back">
+                <img src="/static/img/profile/back.png" height="18px">
+            </button>
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+            <span class="profile-p1-title">首页</span><br>
+            <span>#(loginUser.username)</span>
+        </div>
+    </div>
+
+    <div class="home-content">
+
+        <div>
+
+        <img src="/static/img/favicon.ico">
+        </div>
+        <h1>
+            欢迎 !
+            #if(loginUser.userId == 0)<span>管理员</span>
+            #else<span>用户</span>
+            #end
+            #(loginUser.username)
+        </h1>
+        <h4>这是基于JFinal框架和undertow服务器</h4>
+        <h4>课程设计--话题讨论系统</h4>
+
+    </div>
+
+</div>
+
+#end

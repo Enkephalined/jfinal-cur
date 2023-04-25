@@ -1,0 +1,67 @@
+#@commonHome()
+
+#define main()
+
+<!--已获取profileUser实体对象-->
+<div class="main-content">
+
+  <div class="main-profile-p1">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.back()">
+      <button class="profile-p1-back">
+        <img src="/static/img/profile/back.png" height="18px">
+      </button>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <span class="profile-p1-title">资料</span><br>
+      <span>#(profileUser.username)</span>
+
+    </div>
+  </div>
+
+  <div class="main-profile-p2">
+  </div>
+
+  <div class="pfp">
+    <img class="pfp-img" src="/static/img/profile/pfp.png">
+  </div>
+
+  #if(profileUser.userId == loginUser.userId)
+    <div class="profile-p2-editProfile">
+      <a href="/home/editProfile">
+        <button class="profile-p2-editProfile-btn">编辑资料</button>
+      </a>
+    </div>
+  #end
+
+  <div class="main-profile-p3">
+    <div class="profile-p3-content">
+      <div class="profile-p3-content-username">
+        #(profileUser.username)&nbsp;&nbsp;
+        <span style="color: #00aaff">
+        #if(profileUser.userId == 0)
+          (管理员)
+        #else
+          (普通用户)
+        #end
+      </span>
+      </div>
+      <div class="profile-p3-content-userId">
+        id&nbsp;&nbsp;#(profileUser.userId)
+      </div>
+      <div class="profile-p3-content-signature">
+        水是人类宝贵的资源
+      </div>
+    </div>
+  </div>
+
+  <div class="main-profile-p4">
+    <div class="profile-p4-content">
+      <div>发表话题&nbsp;&nbsp;&nbsp;&nbsp;#(profileUserBlogNum)</div>
+      <div>发表评论&nbsp;&nbsp;&nbsp;&nbsp;#(profileUserCommentNum)</div>
+    </div>
+  </div>
+</div>
+
+#end

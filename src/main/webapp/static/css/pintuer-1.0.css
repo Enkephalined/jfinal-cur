@@ -1,0 +1,391 @@
+
+/*******INDEX*********************************************************************************************************/
+body {
+    background-color: #fff;
+}
+.panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.panel-head {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.form-group {
+    padding: 20px;
+}
+.label {
+    /*font-weight: bold;*/
+    margin-bottom: 10px;
+}
+.index-tip {
+    color: #00aaff;
+    text-decoration: underline;
+    font-size: smaller;
+    margin-top: 5%;
+    margin-left: 60%;
+}
+.msg {
+    color: red;
+    font-size: small;
+}
+.login-btn {
+    display: inline-block;
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #00aaff;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #ddd;
+}
+.register-btn {
+    display: inline-block;
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #22cc77;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px #ddd;
+}
+.login-btn:hover {
+    background-color: royalblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}
+.register-btn:hover {
+    background-color: #00aa88;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}
+.input-login {
+    height: 2.5em;
+    width: 22.5em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.input-login:hover {
+    border: 1px solid #00aaff;
+    box-shadow: 0 0 10px #00aaff;
+    transition: 0.4s ease-out;
+}
+.input-login:focus {
+    border: 1px solid #00aaff;
+    outline: none;
+}
+.input-register {
+    height: 2.5em;
+    width: 22.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.input-register:hover {
+    border: 1px solid #22cc77;
+    box-shadow: 0 0 10px #22cc77;
+    transition: 0.4s ease-out;
+}
+.input-register:focus {
+    border: 1px solid #22cc77;
+    outline: none;
+}
+
+/*******HOME***********************************************************************************************************/
+
+.sidebar {
+    /*background-color: red;*/
+    top: 0;
+    height: 100%;
+    width: 25%;
+    margin-top: 0px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+}
+.menu {
+    margin-top: 10px;
+    margin-left: 100px;
+}
+.menu-a {
+    text-decoration: none;
+}
+.menu-a:hover {
+    color: black;
+    font-weight: bold;
+}
+.menu-btn-normal {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    font-size: 16px;
+    background-color: white;
+}
+.menu-btn-normal:hover {
+    background-color: #dddddd;
+    color: black;
+    transition: background-color 0.4s;
+}
+.menu-a-post {
+    display: inline-block;;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: #00aaff;
+    padding: 15px 15px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 30px;
+}
+.menu-a-post:hover {
+    color: white;
+    background-color: royalblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}
+.main-content {
+    top: 0;
+    margin-left: 25%;
+    height: 100%;
+    width: 40%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+    /*background-color: #00aa88;*/
+}
+.home-content {
+    margin-left: 5em;
+    margin-top: 5em;
+    margin-right: 5em;
+    /*background-color: #dddddd;*/
+    text-align: center;
+}
+
+/******PROFILE*********************************************************************************************************/
+.main-profile-p1 {
+    display: flex;
+    place-items: center; /* 垂直和水平方向居中 */
+    height: 7%;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    color: #999999;
+    white-space: nowrap;
+}
+.profile-p1-title {
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+}
+.profile-p1-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+}
+.profile-p1-back:hover {
+    background-color: #dddddd;
+    transition: background-color 0.4s;
+}
+.main-profile-p2 {
+    height: 28%;
+    border-bottom: 1px solid #ddd;
+    background-color: #CCD6DD;
+}
+.pfp {
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid white;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    margin-top: 29%;
+    margin-left: 3%;
+}
+.pfp-img {
+    width: 125px;
+    height: 130px;
+}
+.profile-p2-editProfile {
+    position: absolute;
+    z-index: 1;
+    height: 5%;
+    width: 20%;
+    margin-top: 43.5%;
+    margin-left: 78%;
+    /*background-color: #999999;*/
+}
+.profile-p2-editProfile-btn {
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid #dddddd;
+    background-color: white;
+    font-size: 15px;
+    font-weight: lighter;
+}
+.profile-p2-editProfile-btn:hover {
+    background-color: #dddddd;
+    transition: background-color 0.4s;
+}
+.main-profile-p3 {
+    /*background-color: red;*/
+    margin-top: 15%;
+    height: 13%;
+}
+.profile-p3-content {
+    margin-left: 3%;
+    height: 87%;
+}
+.profile-p3-content-username {
+    font-size: 17px;
+    font-weight: bold;
+}
+.profile-p3-content-userId {
+    font-size: 12px;
+    color: #999999;
+    margin-top: 5px;
+}
+.profile-p3-content-signature {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.main-profile-p4 {
+    /*background-color: gray;*/
+    height: 7%;
+    border-bottom: 1px solid #dddddd;
+}
+.profile-p4-content {
+    font-size: small;
+    color: #999999;
+    margin-left: 3%;
+}
+
+/*******EDIT PASSWORD**************************************************************************************************/
+.editProfile-p1 {
+    height: 70%;
+    /*background-color: #999999;*/
+}
+.editProfile-btn {
+    display: inline-block;
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px;
+    margin-top: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #00aaff;
+    border: none;
+    cursor: pointer;
+}
+.editProfile-btn:hover {
+    background-color: royalblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}
+.input-editProfile {
+    font-size: 13.5px;
+    color: #666666;
+    height: 3em;
+    width: 88%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.input-editProfile:hover {
+    border: 1px solid #00aaff;
+    box-shadow: 0 0 10px #00aaff;
+    transition: 0.4s ease-out;
+}
+.input-editProfile:focus {
+    border: 1px solid #00aaff;
+    box-shadow: 0 0 10px #00aaff;
+    outline: none;
+}
+.form-group-editProfile {
+    margin-top: 8%;
+    margin-left: 10%;
+}
+.msg-editProfile {
+    color: red;
+    font-size: medium;
+}
+.panel-head-cancel {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+.cancel-btn-no {
+    display: inline-block;
+    width: 50%;
+    padding: 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #00aaff;
+    border: none;
+    border-bottom-left-radius: 10px;
+}
+.cancel-btn-yes {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    padding: 15px;
+    margin-left: -4.75px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #dddddd;
+    border: none;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 5px 10px #ddd;
+}
+.cancel-btn-no:hover {
+    background-color: royalblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}
+.cancel-btn-yes:hover {
+    background-color: #999999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.4s;
+}

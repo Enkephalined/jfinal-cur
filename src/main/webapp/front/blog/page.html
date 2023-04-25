@@ -1,0 +1,125 @@
+#@commonHome()
+
+#define main()
+
+<div class="main-content">
+
+  <div class="main-profile-p1">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="javascript:history.back()">
+      <button class="profile-p1-back">
+        <img src="/static/img/profile/back.png" height="18px">
+      </button>
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <span class="profile-p1-title">话题</span><br>
+      <span>#(loginUser.username)</span>
+    </div>
+  </div>
+
+  <div class="page-p1">
+
+  #if(blogPage.total == 0)
+
+    <div class="panel-head">暂无查询结果</div>
+
+  #else
+
+    <div class="panel-head">查看话题</div>
+
+    <table>
+      <thead>
+      <tr>
+        <th class="blog-title">标题</th>
+        <th class="blog-commentNum">评论</th>
+        <th class="blog-username">题主</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      #for(blog : blogPage.list)
+
+        <tr>
+          <td class="blog-title" >
+            <a class="page-td-a" href="/blog/showBlog/#(blog.blogId)-1">#(blog.title)</a>
+          </td>
+          <td class="blog-commentNum">#(blog.commentNum)</td>
+          <td class="blog-username">
+            #if(userMap.get(blog.userId) == null)
+              <a class="page-td-a" style="color: red">用户已注销</a>
+            #else
+              <a class="page-td-a" href="/home/profile/#(blog.userId)">#(userMap.get(blog.userId))</a>
+            #end
+          </td>
+        </tr>
+
+      #end
+        <tr>
+          <td class="td-navigatepageNum" colspan="3" style="border-left: 1px solid #ddd;border-bottom: none">
+            <div class="navigation">
+              <ol class="wp-paginate">
+
+                #if(blogPage.isFirstPage)
+                  <li><a class="page-useless">&lt;&lt;</a></li>
+                #else
+                  <li><a class="page-userful" href="/blog/page/1">&lt;&lt;</a></li>
+                #end
+
+                #if(blogPage.hasPreviousPage)
+                  <li><a class="page-userful" href="/blog/page/#(blogPage.prePage)">&lt;</a></li>
+                #else
+                  <li><a class="page-userless">&lt;</a></li>
+                #end
+
+                <span id="page_box">
+
+                #for(index : blogPage.navigatepageNums)
+                  #if(index == blogPage.pageNum)
+                    <li><a class="page-current">#(index)</a></li>
+                  #else
+                    <li><a class="page-userful" href="/blog/page/#(index)">#(index)</a></li>
+                  #end
+                #end
+
+                </span>
+                #if(blogPage.hasNextPage)
+                  <li><a class="page-userful" href="/blog/page/#(blogPage.nextPage)">&gt;</a></li>
+                #else
+                  <li><a class="page-useless">&gt;</a></li>
+                #end
+
+                #if(blogPage.isLastPage)
+                  <li><a class="page-useless">&gt;&gt;</a></li>
+                #else
+                  <li><a class="page-userful" href="/blog/page/#(blogPage.pages)">&gt;&gt;</a></li>
+                #end
+
+              </ol>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  #end
+
+  </div>
+
+</div>
+
+
+<div class="right-to-mainContent">
+  <div class="searchbar-div">
+    <form action="/blog/searchPage/1">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="/static/img/blogPage/search.png" height="20px">
+      &nbsp;&nbsp;&nbsp;
+      <input class="input-searchbar" type="text" name="searchKeyWord" placeholder="搜索话题或用户名">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input class="submit-searchbar" type="submit" value="搜  索">
+    </form>
+  </div>
+</div>
+
+#end

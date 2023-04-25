@@ -1,0 +1,29 @@
+#@commonIndex()
+
+#define main()
+
+<div class="panel">
+    <div class="panel-head">注册</div>
+    <form action="/doRegister">
+        <div class="form-group">
+            <div class="label">用户名:&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg">#(usernameMsg)</span></div>
+            <div>
+                <input class="input-register" type="text" name="username" placeholder="4到10位字母,数字或下划线" value="#(username??)">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="label">密码:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="msg">#(passwordMsg)</span></div>
+            <div>
+                <input class="input-register" type="password" name="password" placeholder="4到10位字母,数字或下划线" value="#(password??)">
+            </div>
+        </div>
+        <div class="index-tip">
+            <a href="/">返回登录页</a>
+        </div>
+        <div>
+            <button class="register-btn" type="submit">注册</button>
+        </div>
+    </form>
+</div>
+
+#end
